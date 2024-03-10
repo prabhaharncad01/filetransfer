@@ -1,0 +1,38 @@
+[{
+    "id":1,
+    "name":"jaguarclassic",
+    "price":50,
+    "image":"products/Men/1-1.png"
+},
+{
+    "id":2,
+    "name":"versacclassic",
+    "price":65,
+    "image":"products/Men/2-1.png"
+},
+{
+    "id":3,
+    "name":"geiogiaarmania",
+    "price":100,
+    "image":"products/Men/3-1.png"
+},
+{
+    "id":4,
+    "name":"casaius",
+    "price":120,
+    "image":"products/Men/4-1.png"
+},
+{
+    "id":5,
+    "name":"channel",
+    "price":50,
+    "image":"products/Men/5-1.png"
+},
+{
+    "id":6,
+    "name":"classicgiog",
+    "price":80,
+    "image":"products/Men/6-1.png"
+}
+
+]
