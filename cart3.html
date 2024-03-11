@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 15px;
+    }
+
+    .item img {
+      max-width: 100px;
+      float: left;
+      margin-right: 15px;
+    }
+
+    .quantity {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="cart">
+    <h2>CART</h2>
+
+    <div class="listCart">
+      <div class="item" id="item1">
+        <img src="project2/products/Men/1-1.png" class="img-fluid" alt="Perfume 1">
+        <div class="content">
+          <div class="name">Perfume 1</div>
+          <div class="price">$50 / Perfume 1</div>
+        </div>
+        <div class="quantity">
+          <button class="btn btn-outline-secondary" onclick="decrementItem('item1')">-</button>
+          <span class="value" id="quantity1">3</span>
+          <button class="btn btn-outline-secondary" onclick="incrementItem('item1')">+</button>
+          <button class="btn btn-outline-danger ml-2" onclick="deleteItem('item1')">Delete</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <!-- Add more items here if needed -->
+    </div>
+
+    <div class="buttons mt-3">
+      <div class="close">
+        <button class="btn btn-outline-danger">CLOSE</button>
+      </div>
+      <div class="checkout ml-3">
+        <a href="check.html" class="btn btn-primary">CHECKOUT</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (optional, if you need JS functionality) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function decrementItem(itemId) {
+    var quantityElement = document.getElementById('quantity' + itemId.substr(4));
+    var currentValue = parseInt(quantityElement.innerHTML);
+    if (currentValue > 0) {
+      quantityElement.innerHTML = currentValue - 1;
+      if (currentValue - 1 === 0) {
+        document.getElementById(itemId).remove();
+      }
+    }
+  }
+
+  function incrementItem(itemId) {
+    var quantityElement = document.getElementById('quantity' + itemId.substr(4));
+    var currentValue = parseInt(quantityElement.innerHTML);
+    quantityElement.innerHTML = currentValue + 1;
+  }
+
+  function deleteItem(itemId) {
+    document.getElementById(itemId).remove();
+  }
+</script>
+
+</body>
+</html>

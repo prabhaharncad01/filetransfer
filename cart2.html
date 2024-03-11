@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .listCart img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cart">
+      <h2 class="text-center">CART</h2>
+      <div class="listCart">
+        <div class="item row align-items-center">
+          <div class="col-auto">
+            <img src="project2/products/Men/1-1.png" class="img-fluid" alt="perfume">
+          </div>
+          <div class="col">
+            <div class="content">
+              <div class="name">perfume1</div>
+              <div class="price">$50 /perfume1</div>
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="quantity">
+              <button class="btn btn-sm btn-secondary decrease">-</button>
+              <span class="value mx-2">3</span>
+              <button class="btn btn-sm btn-secondary increase">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="buttons d-flex justify-content-between mt-4">
+        <div class="close btn btn-danger">CLOSE</div>
+        <div class="checkout"><a href="check.html" class="btn btn-success">CHECKOUT</a></div>
+      </div>
+    </div>
+  </div>
+<script>
+    const decreaseButtons = document.querySelectorAll('.decrease');
+const increaseButtons = document.querySelectorAll('.increase');
+const values = document.querySelectorAll('.value');
+
+decreaseButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    values[index].textContent = parseInt(values[index].textContent) - 1;
+  });
+});
+
+increaseButtons.forEach((button, index) => {
+  button.addEventListener('click', () => {
+    values[index].textContent = parseInt(values[index].textContent) + 1;
+  });
+});
+
+
+
+function changeQuantity($idProduct, $type){
+    switch ($type) {
+        case '+':
+            listCart[$idProduct].quantity++;
+            break;
+        case '-':
+            listCart[$idProduct].quantity--;
+
+            // if quantity <= 0 then remove product in cart
+            if(listCart[$idProduct].quantity <= 0){
+                delete listCart[$idProduct];
+            }
+            break;
+    
+        default:
+            break;
+
+            addCartToHTML();
+    }}
+
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
